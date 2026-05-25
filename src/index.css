@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+/* ── GLOBAL POLISH ── */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::selection {
+  background-color: #6366f1; /* Indigo-500 */
+  color: white;
+}
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:is(.dark, .dark *));
+
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+/* DARK MODE: Apply dark background to body when .dark class is active on HTML */
+/* If the background doesn't darken, then the .dark class is not being added correctly */
+.dark body {
+  background-color: #030712 !important; /* Tailwind gray-950 equivalent */
+  color: #f9fafb !important; /* Tailwind gray-50 equivalent */
+}
+
+/* Ensure Tailwind's dark: utilities also work in v4 */
+.dark .dark\:bg-gray-950 {
+  background-color: #030712 !important;
+}
+
